@@ -1,4 +1,4 @@
-"IN YOUR BEST INTEREST"
+#In your Best Interest
 
 is a simple web calculator, which, as the title suggests, performs interest-related calculations.
 Currently it offers four options for calculation: simple interest, compound interest, annuities
