@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="wrapper">
+        <div class="calcform">
+            <h3>Mortgage (or Amortizing Loan)</h3>
+            <form action="/loan" method="post">
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="price" placeholder="Total Price / Loan Amount" type="number" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="down" placeholder="Percentage Down (%)" type="number" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="rate" placeholder="Annual Interest Rate (%)" type="number" min="0" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="period" placeholder="Payment Period">
+                        <option value="" disabled selected hidden>Choose Payment Period...</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Yearly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="time" placeholder="Length of Loan (years)" type="number" min="1" step="1">
+                </div>
+                <button class="btn btn-primary" type="submit">Calculate Payments</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

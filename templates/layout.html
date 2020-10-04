@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" rel="stylesheet" type="text/css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" async></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" async></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+        <title>CS50x Project</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="/">
+                <div class="title">In Your Best Interest  <span class="badge badge-secondary">CS50x</span></div>
+            </a>
+        </header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-center" id="navbar">
+                <ul class="navbar-nav nav navbar-center">
+                    <li class="nav-item"><a class="nav-link" href="/simple">Simple Interest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/compound">Compound Interest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/annuity">Annuity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/loan">Mortgage</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger border text-center" role="flashedmessages">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+
+</html>

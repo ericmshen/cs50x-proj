@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="wrapper">
+        <div class="calcform">
+            <h3>Simple Interest</h3>
+            <form action="/simple" method="post">
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="principal" placeholder="Amount Invested" type="number" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="rate" placeholder="Interest Rate Per Period (%)" type="number" min="0" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="time" placeholder="Number of Periods Invested" type="number" min="1" step="1">
+                </div>
+                <button class="btn btn-primary" type="submit">Calculate Interest</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

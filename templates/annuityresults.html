@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h3>Annuity Details</h3>
+    <div class="results">
+        <p>After making <span class="em">{{period}}</span> deposits of <span class="em">${{deposit}}</span> for <span class="em">{{time}}</span> year(s) at an annual interest rate of <span class="em">{{rate}}%</span>, you will have <span class="em">${{total}}</span>, in total depositing <span class="em">${{deposittotal}}</span> through <span class="em">{{periods}}</span> payments and earning <span class="em">${{interest}}</span> in interest.</p>
+    </div>
+    <br>
+    <h3>Graph of Total Deposits and Interest Over Time</h3>
+    <div class="horizontal-scroll">
+        <div class="ct-chart ct-bar" id="annuitychart"></div>
+    </div>
+    <br>
+    <script>
+        arr = [];
+        for (let i = 1; i < {{periods}} + 1; i++) {
+            arr.push(i.toString())
+        }
+        new Chartist.Bar("#annuitychart", {
+            labels: arr,
+            series: [{
+                name: "Total Money From Deposits",
+                data: {{chartdeposits}}
+            }, {
+                name: "Total Money From Interest",
+                data: {{chartinterests}}
+            }]
+        }, {
+            stackBars: true,
+            width: {{width}},
+            height: "500px"
+        });
+    </script>
+    <script>
+        var $tooltip = $('<div class="tooltip tooltip-hidden"></div>').appendTo($('#annuitychart'));
+
+        $(document).on('mouseenter', '.ct-bar', function() {
+            var seriesName = $(this).closest('.ct-series').attr('ct:series-name'),
+                value = (Math.round($(this).attr('ct:value')*100))/100;
+            if (!isNaN(value)) {
+                $tooltip.text(seriesName + ': $' + value);
+                $tooltip.removeClass('tooltip-hidden');
+            }
+        });
+
+        $(document).on('mouseleave', '.ct-bar', function() {
+            $tooltip.addClass('tooltip-hidden');
+        });
+
+        $(document).on('mousemove', '.ct-bar', function(event) {
+            console.log(event);
+        });
+    </script>
+{% endblock %}

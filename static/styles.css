@@ -1,0 +1,126 @@
+body {
+    font: roboto;
+    color: #333;
+    background-color: #DDD;
+
+}
+
+header {
+    text-align: center;
+    font-size: 32px;
+    background-color: #555;
+    color: #FFF;
+    padding: 0.5em;
+}
+
+h3 {
+  text-align: center;
+}
+
+.title {
+  color: #FFF;
+}
+
+.ct-chart {
+    stroke-width: 5px;
+}
+
+@media screen and (min-width: 300px) {
+  .ct-chart .ct-bar {
+    stroke-width: 10px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .ct-chart .ct-bar {
+    stroke-width: 20px;
+  }
+}
+
+#chart2 {
+    height: 200px;
+}
+
+nav {
+  background-color: #AAA;
+}
+
+.navbar-center {
+  float: none;
+  margin: auto;
+  text-align: center;
+}
+
+.horizontal-scroll {
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-radius: 3px;
+  text-align: center;
+  pointer-events: none;
+  color: white;
+  transition: opacity .1s ease-out;
+}
+
+.tooltip-hidden {
+  opacity: 0;
+}
+
+.calcform {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.results {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.em {
+  font-weight: bold;
+  color: #000;
+}
+
+.ct-chart {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+.ct-chart .ct-label.ct-horizontal {
+  text-align: center;
+}
+
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point {
+  stroke: #138ef2 !important;
+  stroke-width: 12px !important;
+}
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point {
+  stroke: #12b836 !important;
+  stroke-width: 12px !important;
+}
+
+.info {
+  width: 80%;
+  margin: auto;
+  line-height: 1.75em;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+  color: #AAA;
+}

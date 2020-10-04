@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="wrapper">
+        <h3>Select an option above!</h3>
+        <hr>
+        <h3>Basic Information</h3>
+        <ul class="info">
+            <li>In <a href="/simple"><b>simple interest</b></a>, the amount of interest you make is proportional to the initial amount you invest each time period. For instance, if you invested $1000 with an interest rate of 5% per month for 4 months, you'd earn $200 in interest.</li>
+            <li>In <a href="/compound"><b>compound interest</b></a>, the amount of interest you make each period invested is proportional to the total amount of money you currently have. If you invested $1000 with an interest rate of 5% per month, the first month you'd make 5% of $1000 in interest (or $50), the next you'd make 5% of $1050 in interest (or $52.50), and so on. Compound interest is a form of exponential growth.</li>
+            <li>In an <a href="/annuity"><b>annuity</b></a>, you deposit a certain amount of money each period for many periods, with each deposit being compounded. Your first few deposits will be compounded for longer, and so gain more interest, than later ones. The "future value" of the annuity is the expected money you'll have at the end of the annuity from your deposits and the interest you accumulate along the way.</li>
+            <li>In a <a href="/loan"><b>loan or mortgage</b></a> with installment payments, the loaner takes the total amount of money you owe (the principal) in a compound interest calculation, and uses that (plus the number of payments you'll make) to determine how much you need to pay per installment. For the first few payments, you'll likely be paying off more interest than principal—it's only until later on that your installments will pay off more and more of the principal. You can read more about this, informally, <a href="https://michaelbluejay.com/house/interest.html" target="_blank">here</a>.</li>
+        </ul>
+        <br>
+        <div class="sources">
+            <p class="center">Made with <a href="https://gionkunz.github.io/chartist-js/" target="_blank">Chartist.js</a>, Flask, and jQuery.</p>
+        </div>
+    </div>
+{% endblock %}

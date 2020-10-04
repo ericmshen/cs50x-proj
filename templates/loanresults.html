@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h3>Loan/Mortgage Details</h3>
+    <div class="results">
+    <p>To pay back a loan/mortgage with a principal amount of <span class="em">${{principal}}</span> (a price of <span class="em">${{price}}</span> with <span class="em">{{down}}%</span> down) at an annual interest rate of <span class="em">{{rate}}%</span> for <span class="em">{{time}}</span> year(s), you will need <span class="em">{{payments}} {{period}}</span> payments of <span class="em">${{installment}}</span>, for a total of <span class="em">${{total}}</span>, which includes <span class="em">${{totalinterest}}</span> in interest.</p>
+    </div>
+    <br>
+    <h3>Graph of Payment Composition Over Time</h3>
+    <div class="horizontal-scroll">
+        <div class="ct-chart ct-bar" id="loanchart"></div>
+    </div>
+    <br>
+    <script>
+        arr = [];
+        for (let i = 1; i < {{payments}} + 1; i++) {
+            arr.push(i.toString())
+        }
+        new Chartist.Bar("#loanchart", {
+            labels: arr,
+            series: [{
+                name: "Portion of Installment Paying Off Principal",
+                data: {{chartprincipals}}
+            }, {
+                name: "Portion of Installment Paying Off Interest",
+                data: {{chartinterests}}
+            }]
+        }, {
+            stackBars: true,
+            width: {{width}},
+            height: "500px"
+        });
+    </script>
+    <script>
+        var $tooltip = $('<div class="tooltip tooltip-hidden"></div>').appendTo($('#loanchart'));
+
+        $(document).on('mouseenter', '.ct-bar', function() {
+            var seriesName = $(this).closest('.ct-series').attr('ct:series-name'),
+                value = (Math.round($(this).attr('ct:value')*100))/100;
+            if (!isNaN(value)) {
+                $tooltip.text(seriesName + ': $' + value);
+                $tooltip.removeClass('tooltip-hidden');
+            }
+        });
+
+        $(document).on('mouseleave', '.ct-bar', function() {
+            $tooltip.addClass('tooltip-hidden');
+        });
+
+        $(document).on('mousemove', '.ct-bar', function(event) {
+            console.log(event);
+        });
+    </script>
+{% endblock %}
